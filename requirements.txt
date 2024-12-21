@@ -1,0 +1,10 @@
+# Dépendances de base pour la conversion audio en texte
+SpeechRecognition>=3.8.1
+pydub>=0.25.1
+numpy>=1.21.0
+PyQt6>=6.0.0
+ffmpeg-python>=0.2.0
+python-docx>=0.8.11
+
+# Dépendances pour la compilation
+pyinstaller>=5.13.0
