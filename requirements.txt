@@ -8,3 +8,7 @@ python-docx>=0.8.11
 
 # Dépendances pour la compilation
 pyinstaller>=5.13.0
+
+# Dépendances pour les tests
+pytest==7.4.3
+pytest-qt==4.2.0

@@ -1,10 +1,9 @@
 import logging
-from PyQt6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-                            QPushButton, QLabel, QFileDialog, QProgressBar,
-                            QTextEdit, QScrollArea, QComboBox, QMessageBox)
+from PyQt6.QtWidgets import (QMainWindow, QPushButton, QVBoxLayout, QWidget, QFileDialog,
+                            QTextEdit, QScrollArea, QComboBox, QMessageBox, QLabel, QProgressBar, QHBoxLayout)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QTextCursor
-from audio_converter import AudioConverter
+from src.audio_converter import AudioConverter
 import os
 
 class ConversionThread(QThread):

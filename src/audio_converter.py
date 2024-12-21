@@ -25,6 +25,8 @@ class AudioConverter(QObject):
         # Utiliser le nombre de threads CPU disponibles - 1 (minimum 1)
         self.max_workers = max_workers or max(1, os.cpu_count() - 1)
         self.language = 'fr-FR'  # Langue par défaut
+        self.supported_formats = ['.wav', '.mp3', '.m4a', '.flac', '.ogg']
+        self.recognizer = sr.Recognizer()
         logging.info(f"Initialisation du convertisseur audio avec {self.max_workers} workers")
 
     def process_segment(self, segment_data):
@@ -244,3 +246,26 @@ class AudioConverter(QObject):
         except Exception as e:
             logging.error(f"Erreur lors de la conversion: {str(e)}")
             raise
+
+    def convert_audio(self, input_file: str, output_format: str = 'wav') -> str:
+        """Convertit un fichier audio dans le format spécifié."""
+        input_ext = os.path.splitext(input_file)[1].lower()
+        if input_ext not in self.supported_formats:
+            raise ValueError(f"Format non supporté : {input_ext}")
+
+        if not os.path.exists(input_file):
+            raise FileNotFoundError(f"Le fichier {input_file} n'existe pas")
+
+        # Le reste de votre code de conversion existant
+        return input_file  # Pour le moment, retourne simplement le fichier d'entrée
+
+    def get_duration(self, file_path: str) -> float:
+        """Obtient la durée d'un fichier audio en secondes."""
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"Le fichier {file_path} n'existe pas")
+
+        try:
+            audio = AudioSegment.from_file(file_path)
+            return len(audio) / 1000.0  # Convertit en secondes
+        except Exception as e:
+            raise ValueError(f"Impossible de lire le fichier audio : {str(e)}")

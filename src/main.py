@@ -5,7 +5,7 @@ import traceback
 from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMessageBox
 from PyQt6.QtCore import Qt
-from main_window import MainWindow
+from src.main_window import MainWindow
 
 def setup_logging():
     """Configure le système de logging"""

@@ -1,127 +1,122 @@
-2024-12-20 23:01:32,189 - INFO - [main.py:34] - === Démarrage de l'application Audio2Text ===
-2024-12-20 23:01:32,189 - INFO - [main.py:35] - Fichier de log : /Users/liv/Documents/DEVs/DEVsPython/python-env/workspace/Audio2Text/logs/audio2text.log
-2024-12-20 23:01:32,189 - INFO - [main.py:36] - Python version : 3.13.1 (main, Dec  3 2024, 17:59:52) [Clang 16.0.0 (clang-1600.0.26.4)]
-2024-12-20 23:01:32,189 - INFO - [main.py:37] - Répertoire courant : /Users/liv/Documents/DEVs/DEVsPython/python-env/workspace/Audio2Text/src
-2024-12-20 23:01:32,189 - INFO - [main.py:38] - PYTHONPATH : 
-2024-12-20 23:01:32,189 - DEBUG - [main.py:70] - Création de l'application Qt
-2024-12-20 23:01:32,266 - DEBUG - [main.py:73] - Création de la fenêtre principale
-2024-12-20 23:01:32,266 - INFO - [main_window.py:110] - Initialisation de MainWindow
-2024-12-20 23:01:32,267 - INFO - [main_window.py:118] - Création des widgets
-2024-12-20 23:01:32,334 - INFO - [main_window.py:258] - Interface graphique initialisée
-2024-12-20 23:01:32,334 - DEBUG - [main.py:76] - Affichage de la fenêtre
-2024-12-20 23:01:32,381 - DEBUG - [main.py:79] - Démarrage de la boucle d'événements
-2024-12-20 23:01:34,314 - INFO - [main_window.py:302] - Ouverture du sélecteur de fichier
-2024-12-20 23:01:38,390 - INFO - [main_window.py:311] - Fichier sélectionné: /Users/liv/Documents/20240117_102638.mp3
-2024-12-20 23:01:38,391 - INFO - [main_window.py:320] - Langue sélectionnée: fr-FR
-2024-12-20 23:01:38,392 - INFO - [audio_converter.py:26] - Initialisation du convertisseur audio avec 13 workers
-2024-12-20 23:01:38,392 - INFO - [audio_converter.py:179] - Démarrage de la conversion du fichier: /Users/liv/Documents/20240117_102638.mp3
-2024-12-20 23:01:38,392 - INFO - [audio_converter.py:180] - Langue sélectionnée: fr-FR
-2024-12-20 23:01:38,392 - INFO - [audio_converter.py:184] - Conversion du fichier en format WAV...
-2024-12-20 23:01:38,393 - INFO - [audio_converter.py:91] - Conversion en WAV: ffmpeg -i "/Users/liv/Documents/20240117_102638.mp3" -acodec pcm_s16le -ac 1 -ar 44100 -y "/var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmp3bc_u7km.wav"
-2024-12-20 23:01:39,038 - INFO - [audio_converter.py:110] - Durée du fichier: 702.4 secondes
-2024-12-20 23:01:39,039 - INFO - [audio_converter.py:187] - Durée du fichier: 702.4 secondes
-2024-12-20 23:01:39,039 - INFO - [audio_converter.py:191] - Division du fichier audio en segments...
-2024-12-20 23:01:39,051 - INFO - [audio_converter.py:140] - Segment créé: 0.0s - 45.0s
-2024-12-20 23:01:39,052 - INFO - [audio_converter.py:140] - Segment créé: 45.0s - 90.0s
-2024-12-20 23:01:39,052 - INFO - [audio_converter.py:140] - Segment créé: 90.0s - 135.0s
-2024-12-20 23:01:39,054 - INFO - [audio_converter.py:140] - Segment créé: 135.0s - 180.0s
-2024-12-20 23:01:39,054 - INFO - [audio_converter.py:140] - Segment créé: 180.0s - 225.0s
-2024-12-20 23:01:39,055 - INFO - [audio_converter.py:140] - Segment créé: 225.0s - 270.0s
-2024-12-20 23:01:39,059 - INFO - [audio_converter.py:140] - Segment créé: 270.0s - 315.0s
-2024-12-20 23:01:39,060 - INFO - [audio_converter.py:140] - Segment créé: 315.0s - 360.0s
-2024-12-20 23:01:39,061 - INFO - [audio_converter.py:140] - Segment créé: 360.0s - 405.0s
-2024-12-20 23:01:39,062 - INFO - [audio_converter.py:140] - Segment créé: 405.0s - 450.0s
-2024-12-20 23:01:39,062 - INFO - [audio_converter.py:140] - Segment créé: 450.0s - 495.0s
-2024-12-20 23:01:39,063 - INFO - [audio_converter.py:140] - Segment créé: 495.0s - 540.0s
-2024-12-20 23:01:39,064 - INFO - [audio_converter.py:140] - Segment créé: 540.0s - 585.0s
-2024-12-20 23:01:39,065 - INFO - [audio_converter.py:140] - Segment créé: 585.0s - 630.0s
-2024-12-20 23:01:39,066 - INFO - [audio_converter.py:140] - Segment créé: 630.0s - 675.0s
-2024-12-20 23:01:39,066 - INFO - [audio_converter.py:140] - Segment créé: 675.0s - 702.4s
-2024-12-20 23:01:39,067 - INFO - [audio_converter.py:194] - Nombre total de segments: 16
-2024-12-20 23:01:39,068 - INFO - [audio_converter.py:202] - Démarrage du traitement parallèle avec 13 workers
-2024-12-20 23:01:50,078 - DEBUG - [audio_converter.py:218] - Segment 11/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:50,079 - DEBUG - [audio_converter.py:218] - Segment 11/16: Reconnaissance réussie (137 caractères)
-2024-12-20 23:01:50,082 - DEBUG - [main_window.py:272] - Progression mise à jour: 1/16 segments (6.2%)
-2024-12-20 23:01:50,082 - DEBUG - [audio_converter.py:237] - Segment 11 supprimé
-2024-12-20 23:01:50,082 - INFO - [main_window.py:280] - Segment 11/16 traité (137 caractères)
-2024-12-20 23:01:50,847 - DEBUG - [audio_converter.py:218] - Segment 12/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:50,848 - DEBUG - [audio_converter.py:218] - Segment 12/16: Reconnaissance réussie (496 caractères)
-2024-12-20 23:01:50,849 - DEBUG - [audio_converter.py:237] - Segment 12 supprimé
-2024-12-20 23:01:50,851 - DEBUG - [main_window.py:272] - Progression mise à jour: 2/16 segments (12.5%)
-2024-12-20 23:01:50,852 - INFO - [main_window.py:280] - Segment 12/16 traité (496 caractères)
-2024-12-20 23:01:53,434 - DEBUG - [audio_converter.py:218] - Segment 6/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:53,437 - DEBUG - [audio_converter.py:218] - Segment 6/16: Reconnaissance réussie (308 caractères)
-2024-12-20 23:01:53,438 - DEBUG - [audio_converter.py:237] - Segment 6 supprimé
-2024-12-20 23:01:53,440 - DEBUG - [main_window.py:272] - Progression mise à jour: 3/16 segments (18.8%)
-2024-12-20 23:01:53,441 - INFO - [main_window.py:280] - Segment 6/16 traité (308 caractères)
-2024-12-20 23:01:53,693 - DEBUG - [audio_converter.py:218] - Segment 7/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:53,694 - DEBUG - [audio_converter.py:218] - Segment 7/16: Reconnaissance réussie (431 caractères)
-2024-12-20 23:01:53,694 - DEBUG - [audio_converter.py:237] - Segment 7 supprimé
-2024-12-20 23:01:53,695 - DEBUG - [main_window.py:272] - Progression mise à jour: 4/16 segments (25.0%)
-2024-12-20 23:01:53,695 - INFO - [main_window.py:280] - Segment 7/16 traité (431 caractères)
-2024-12-20 23:01:53,706 - DEBUG - [audio_converter.py:218] - Segment 9/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:53,706 - DEBUG - [audio_converter.py:218] - Segment 9/16: Reconnaissance réussie (548 caractères)
-2024-12-20 23:01:53,707 - DEBUG - [audio_converter.py:237] - Segment 9 supprimé
-2024-12-20 23:01:53,708 - DEBUG - [main_window.py:272] - Progression mise à jour: 5/16 segments (31.2%)
-2024-12-20 23:01:53,708 - INFO - [main_window.py:280] - Segment 9/16 traité (548 caractères)
-2024-12-20 23:01:53,999 - DEBUG - [audio_converter.py:218] - Segment 3/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:54,000 - DEBUG - [audio_converter.py:218] - Segment 3/16: Reconnaissance réussie (445 caractères)
-2024-12-20 23:01:54,000 - DEBUG - [audio_converter.py:237] - Segment 3 supprimé
-2024-12-20 23:01:54,001 - DEBUG - [main_window.py:272] - Progression mise à jour: 6/16 segments (37.5%)
-2024-12-20 23:01:54,001 - INFO - [main_window.py:280] - Segment 3/16 traité (445 caractères)
-2024-12-20 23:01:54,027 - DEBUG - [audio_converter.py:218] - Segment 10/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:54,028 - DEBUG - [audio_converter.py:218] - Segment 10/16: Reconnaissance réussie (514 caractères)
-2024-12-20 23:01:54,028 - DEBUG - [audio_converter.py:237] - Segment 10 supprimé
-2024-12-20 23:01:54,029 - DEBUG - [main_window.py:272] - Progression mise à jour: 7/16 segments (43.8%)
-2024-12-20 23:01:54,029 - INFO - [main_window.py:280] - Segment 10/16 traité (514 caractères)
-2024-12-20 23:01:55,118 - DEBUG - [audio_converter.py:218] - Segment 13/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:55,119 - DEBUG - [audio_converter.py:218] - Segment 13/16: Reconnaissance réussie (618 caractères)
-2024-12-20 23:01:55,121 - DEBUG - [main_window.py:272] - Progression mise à jour: 8/16 segments (50.0%)
-2024-12-20 23:01:55,121 - DEBUG - [audio_converter.py:237] - Segment 13 supprimé
-2024-12-20 23:01:55,122 - INFO - [main_window.py:280] - Segment 13/16 traité (618 caractères)
-2024-12-20 23:01:55,867 - DEBUG - [audio_converter.py:218] - Segment 5/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:55,868 - DEBUG - [audio_converter.py:218] - Segment 5/16: Reconnaissance réussie (595 caractères)
-2024-12-20 23:01:55,869 - DEBUG - [audio_converter.py:237] - Segment 5 supprimé
-2024-12-20 23:01:55,872 - DEBUG - [main_window.py:272] - Progression mise à jour: 9/16 segments (56.2%)
-2024-12-20 23:01:55,872 - INFO - [main_window.py:280] - Segment 5/16 traité (595 caractères)
-2024-12-20 23:01:56,087 - DEBUG - [audio_converter.py:218] - Segment 4/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:56,087 - DEBUG - [audio_converter.py:218] - Segment 4/16: Reconnaissance réussie (492 caractères)
-2024-12-20 23:01:56,088 - DEBUG - [audio_converter.py:237] - Segment 4 supprimé
-2024-12-20 23:01:56,089 - DEBUG - [main_window.py:272] - Progression mise à jour: 10/16 segments (62.5%)
-2024-12-20 23:01:56,089 - INFO - [main_window.py:280] - Segment 4/16 traité (492 caractères)
-2024-12-20 23:01:56,222 - DEBUG - [audio_converter.py:218] - Segment 15/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:56,223 - DEBUG - [audio_converter.py:218] - Segment 15/16: Reconnaissance réussie (112 caractères)
-2024-12-20 23:01:56,223 - DEBUG - [audio_converter.py:237] - Segment 15 supprimé
-2024-12-20 23:01:56,224 - DEBUG - [main_window.py:272] - Progression mise à jour: 11/16 segments (68.8%)
-2024-12-20 23:01:56,224 - INFO - [main_window.py:280] - Segment 15/16 traité (112 caractères)
-2024-12-20 23:01:56,816 - DEBUG - [audio_converter.py:218] - Segment 8/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:56,816 - DEBUG - [audio_converter.py:218] - Segment 8/16: Reconnaissance réussie (532 caractères)
-2024-12-20 23:01:56,817 - DEBUG - [audio_converter.py:237] - Segment 8 supprimé
-2024-12-20 23:01:56,818 - DEBUG - [main_window.py:272] - Progression mise à jour: 12/16 segments (75.0%)
-2024-12-20 23:01:56,818 - INFO - [main_window.py:280] - Segment 8/16 traité (532 caractères)
-2024-12-20 23:01:56,879 - DEBUG - [audio_converter.py:218] - Segment 1/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:56,879 - DEBUG - [audio_converter.py:218] - Segment 1/16: Reconnaissance réussie (558 caractères)
-2024-12-20 23:01:56,879 - DEBUG - [audio_converter.py:237] - Segment 1 supprimé
-2024-12-20 23:01:56,880 - DEBUG - [main_window.py:272] - Progression mise à jour: 13/16 segments (81.2%)
-2024-12-20 23:01:56,881 - INFO - [main_window.py:280] - Segment 1/16 traité (558 caractères)
-2024-12-20 23:01:59,185 - DEBUG - [audio_converter.py:218] - Segment 16/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:59,185 - DEBUG - [audio_converter.py:218] - Segment 16/16: Reconnaissance réussie (174 caractères)
-2024-12-20 23:01:59,186 - DEBUG - [main_window.py:272] - Progression mise à jour: 14/16 segments (87.5%)
-2024-12-20 23:01:59,186 - DEBUG - [audio_converter.py:237] - Segment 16 supprimé
-2024-12-20 23:01:59,187 - INFO - [main_window.py:280] - Segment 16/16 traité (174 caractères)
-2024-12-20 23:01:59,877 - DEBUG - [audio_converter.py:218] - Segment 2/16: Tentative 1 de reconnaissance
-2024-12-20 23:01:59,877 - DEBUG - [audio_converter.py:218] - Segment 2/16: Reconnaissance réussie (636 caractères)
-2024-12-20 23:01:59,877 - DEBUG - [audio_converter.py:237] - Segment 2 supprimé
-2024-12-20 23:01:59,878 - DEBUG - [main_window.py:272] - Progression mise à jour: 15/16 segments (93.8%)
-2024-12-20 23:01:59,878 - INFO - [main_window.py:280] - Segment 2/16 traité (636 caractères)
-2024-12-20 23:02:01,365 - DEBUG - [audio_converter.py:218] - Segment 14/16: Tentative 1 de reconnaissance
-2024-12-20 23:02:01,366 - DEBUG - [audio_converter.py:218] - Segment 14/16: Reconnaissance réussie (102 caractères)
-2024-12-20 23:02:01,366 - DEBUG - [audio_converter.py:237] - Segment 14 supprimé
-2024-12-20 23:02:01,368 - DEBUG - [main_window.py:272] - Progression mise à jour: 16/16 segments (100.0%)
-2024-12-20 23:02:01,368 - INFO - [main_window.py:280] - Segment 14/16 traité (102 caractères)
-2024-12-20 23:02:01,369 - INFO - [audio_converter.py:251] - Conversion réussie : 6713 caractères
-2024-12-20 23:02:01,388 - INFO - [audio_converter.py:170] - Document Word sauvegardé: /Users/liv/Documents/20240117_102638_transcription.docx
-2024-12-20 23:02:01,388 - INFO - [audio_converter.py:257] - Document Word créé : /Users/liv/Documents/20240117_102638_transcription.docx
-2024-12-20 23:02:01,389 - DEBUG - [audio_converter.py:270] - Fichier WAV temporaire supprimé
-2024-12-20 23:02:01,390 - INFO - [main_window.py:349] - Conversion terminée avec succès
-2024-12-20 23:02:01,390 - INFO - [main_window.py:350] - Résultat : on avait ce budget là on a fait ça ça dérivé pour telle et telle raison ça a été des drivers techniq...
+2024-12-21 09:18:28,373 - INFO - [main.py:34] - === Démarrage de l'application Audio2Text ===
+2024-12-21 09:18:28,373 - INFO - [main.py:35] - Fichier de log : /Users/liv/Documents/DEVs/DEVsPython/python-env/workspace/Audio2Text/logs/audio2text.log
+2024-12-21 09:18:28,373 - INFO - [main.py:36] - Python version : 3.13.1 (main, Dec  3 2024, 17:59:52) [Clang 16.0.0 (clang-1600.0.26.4)]
+2024-12-21 09:18:28,373 - INFO - [main.py:37] - Répertoire courant : /Users/liv/Documents/DEVs/DEVsPython/python-env/workspace/Audio2Text
+2024-12-21 09:18:28,373 - INFO - [main.py:38] - PYTHONPATH : 
+2024-12-21 09:18:28,373 - DEBUG - [main.py:70] - Création de l'application Qt
+2024-12-21 09:18:28,457 - DEBUG - [main.py:73] - Création de la fenêtre principale
+2024-12-21 09:18:28,458 - INFO - [main_window.py:109] - Initialisation de MainWindow
+2024-12-21 09:18:28,458 - INFO - [main_window.py:117] - Création des widgets
+2024-12-21 09:18:28,524 - INFO - [main_window.py:257] - Interface graphique initialisée
+2024-12-21 09:18:28,524 - DEBUG - [main.py:76] - Affichage de la fenêtre
+2024-12-21 09:18:28,574 - DEBUG - [main.py:79] - Démarrage de la boucle d'événements
+2024-12-21 09:18:30,551 - INFO - [main_window.py:301] - Ouverture du sélecteur de fichier
+2024-12-21 09:18:36,825 - INFO - [main_window.py:310] - Fichier sélectionné: /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:18:36,826 - INFO - [main_window.py:319] - Langue sélectionnée: fr-FR
+2024-12-21 09:18:36,827 - INFO - [audio_converter.py:30] - Initialisation du convertisseur audio avec 13 workers
+2024-12-21 09:18:36,827 - INFO - [audio_converter.py:186] - Démarrage de la conversion du fichier: /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:18:36,827 - INFO - [audio_converter.py:187] - Langue sélectionnée: fr-FR
+2024-12-21 09:18:36,827 - INFO - [audio_converter.py:191] - Conversion du fichier en format WAV...
+2024-12-21 09:18:36,828 - INFO - [audio_converter.py:99] - Conversion en WAV: /opt/homebrew/bin/ffmpeg -i "/Users/liv/Documents/20240117_102638.mp3" -acodec pcm_s16le -ac 1 -ar 44100 -y "/var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmpgz5xld4_.wav"
+2024-12-21 09:18:37,465 - INFO - [audio_converter.py:196] - Division du fichier audio en segments...
+2024-12-21 09:18:37,476 - INFO - [audio_converter.py:146] - Segment créé: 0.0s - 45.0s
+2024-12-21 09:18:37,476 - INFO - [audio_converter.py:146] - Segment créé: 45.0s - 90.0s
+2024-12-21 09:18:37,477 - INFO - [audio_converter.py:146] - Segment créé: 90.0s - 135.0s
+2024-12-21 09:18:37,477 - INFO - [audio_converter.py:146] - Segment créé: 135.0s - 180.0s
+2024-12-21 09:18:37,478 - INFO - [audio_converter.py:146] - Segment créé: 180.0s - 225.0s
+2024-12-21 09:18:37,478 - INFO - [audio_converter.py:146] - Segment créé: 225.0s - 270.0s
+2024-12-21 09:18:37,478 - INFO - [audio_converter.py:146] - Segment créé: 270.0s - 315.0s
+2024-12-21 09:18:37,479 - INFO - [audio_converter.py:146] - Segment créé: 315.0s - 360.0s
+2024-12-21 09:18:37,479 - INFO - [audio_converter.py:146] - Segment créé: 360.0s - 405.0s
+2024-12-21 09:18:37,479 - INFO - [audio_converter.py:146] - Segment créé: 405.0s - 450.0s
+2024-12-21 09:18:37,479 - INFO - [audio_converter.py:146] - Segment créé: 450.0s - 495.0s
+2024-12-21 09:18:37,480 - INFO - [audio_converter.py:146] - Segment créé: 495.0s - 540.0s
+2024-12-21 09:18:37,480 - INFO - [audio_converter.py:146] - Segment créé: 540.0s - 585.0s
+2024-12-21 09:18:37,480 - INFO - [audio_converter.py:146] - Segment créé: 585.0s - 630.0s
+2024-12-21 09:18:37,481 - INFO - [audio_converter.py:146] - Segment créé: 630.0s - 675.0s
+2024-12-21 09:18:37,481 - INFO - [audio_converter.py:146] - Segment créé: 675.0s - 702.4s
+2024-12-21 09:18:37,481 - INFO - [audio_converter.py:199] - Nombre total de segments: 16
+2024-12-21 09:18:37,486 - INFO - [audio_converter.py:206] - Démarrage du traitement parallèle avec 13 workers
+2024-12-21 09:18:37,486 - DEBUG - [audio_converter.py:36] - Segment 1/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,486 - DEBUG - [audio_converter.py:36] - Segment 2/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,487 - DEBUG - [audio_converter.py:36] - Segment 3/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,487 - DEBUG - [audio_converter.py:36] - Segment 4/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,487 - DEBUG - [audio_converter.py:36] - Segment 5/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,488 - DEBUG - [audio_converter.py:36] - Segment 6/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,488 - DEBUG - [audio_converter.py:36] - Segment 7/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,488 - DEBUG - [audio_converter.py:36] - Segment 8/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,489 - DEBUG - [audio_converter.py:36] - Segment 9/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,489 - DEBUG - [audio_converter.py:36] - Segment 10/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,489 - DEBUG - [audio_converter.py:36] - Segment 11/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,490 - DEBUG - [audio_converter.py:36] - Segment 12/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:37,490 - DEBUG - [audio_converter.py:36] - Segment 13/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:51,563 - DEBUG - [audio_converter.py:53] - Segment 11 supprimé
+2024-12-21 09:18:51,564 - DEBUG - [audio_converter.py:57] - Segment 11/16: Reconnaissance réussie (137 caractères)
+2024-12-21 09:18:51,573 - DEBUG - [audio_converter.py:36] - Segment 14/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:51,575 - DEBUG - [main_window.py:271] - Progression mise à jour: 11/16 segments (68.8%)
+2024-12-21 09:18:51,575 - INFO - [main_window.py:279] - Segment 11/16 traité (137 caractères)
+2024-12-21 09:18:52,399 - DEBUG - [audio_converter.py:53] - Segment 12 supprimé
+2024-12-21 09:18:52,400 - DEBUG - [audio_converter.py:57] - Segment 12/16: Reconnaissance réussie (501 caractères)
+2024-12-21 09:18:52,410 - DEBUG - [audio_converter.py:36] - Segment 15/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:52,411 - DEBUG - [main_window.py:271] - Progression mise à jour: 12/16 segments (75.0%)
+2024-12-21 09:18:52,412 - INFO - [main_window.py:279] - Segment 12/16 traité (501 caractères)
+2024-12-21 09:18:53,597 - DEBUG - [audio_converter.py:53] - Segment 10 supprimé
+2024-12-21 09:18:53,598 - DEBUG - [audio_converter.py:57] - Segment 10/16: Reconnaissance réussie (508 caractères)
+2024-12-21 09:18:53,612 - DEBUG - [audio_converter.py:36] - Segment 16/16: Tentative 1 de reconnaissance
+2024-12-21 09:18:53,613 - DEBUG - [main_window.py:271] - Progression mise à jour: 10/16 segments (62.5%)
+2024-12-21 09:18:53,614 - INFO - [main_window.py:279] - Segment 10/16 traité (508 caractères)
+2024-12-21 09:18:54,107 - DEBUG - [audio_converter.py:53] - Segment 7 supprimé
+2024-12-21 09:18:54,109 - DEBUG - [audio_converter.py:57] - Segment 7/16: Reconnaissance réussie (431 caractères)
+2024-12-21 09:18:54,120 - DEBUG - [main_window.py:271] - Progression mise à jour: 7/16 segments (43.8%)
+2024-12-21 09:18:54,120 - INFO - [main_window.py:279] - Segment 7/16 traité (431 caractères)
+2024-12-21 09:18:54,892 - DEBUG - [audio_converter.py:53] - Segment 9 supprimé
+2024-12-21 09:18:54,893 - DEBUG - [audio_converter.py:57] - Segment 9/16: Reconnaissance réussie (548 caractères)
+2024-12-21 09:18:54,904 - DEBUG - [main_window.py:271] - Progression mise à jour: 9/16 segments (56.2%)
+2024-12-21 09:18:54,904 - INFO - [main_window.py:279] - Segment 9/16 traité (548 caractères)
+2024-12-21 09:18:55,937 - DEBUG - [audio_converter.py:53] - Segment 3 supprimé
+2024-12-21 09:18:55,938 - DEBUG - [audio_converter.py:57] - Segment 3/16: Reconnaissance réussie (445 caractères)
+2024-12-21 09:18:55,950 - DEBUG - [main_window.py:271] - Progression mise à jour: 3/16 segments (18.8%)
+2024-12-21 09:18:55,951 - INFO - [main_window.py:279] - Segment 3/16 traité (445 caractères)
+2024-12-21 09:18:56,935 - DEBUG - [audio_converter.py:53] - Segment 6 supprimé
+2024-12-21 09:18:56,937 - DEBUG - [audio_converter.py:57] - Segment 6/16: Reconnaissance réussie (308 caractères)
+2024-12-21 09:18:56,950 - DEBUG - [main_window.py:271] - Progression mise à jour: 6/16 segments (37.5%)
+2024-12-21 09:18:56,951 - INFO - [main_window.py:279] - Segment 6/16 traité (308 caractères)
+2024-12-21 09:18:56,951 - DEBUG - [audio_converter.py:53] - Segment 2 supprimé
+2024-12-21 09:18:56,952 - DEBUG - [audio_converter.py:57] - Segment 2/16: Reconnaissance réussie (636 caractères)
+2024-12-21 09:18:56,957 - DEBUG - [main_window.py:271] - Progression mise à jour: 2/16 segments (12.5%)
+2024-12-21 09:18:56,958 - INFO - [main_window.py:279] - Segment 2/16 traité (636 caractères)
+2024-12-21 09:18:57,614 - DEBUG - [audio_converter.py:53] - Segment 1 supprimé
+2024-12-21 09:18:57,615 - DEBUG - [audio_converter.py:57] - Segment 1/16: Reconnaissance réussie (558 caractères)
+2024-12-21 09:18:57,629 - DEBUG - [main_window.py:271] - Progression mise à jour: 1/16 segments (6.2%)
+2024-12-21 09:18:57,630 - INFO - [main_window.py:279] - Segment 1/16 traité (558 caractères)
+2024-12-21 09:18:58,436 - DEBUG - [audio_converter.py:53] - Segment 8 supprimé
+2024-12-21 09:18:58,437 - DEBUG - [audio_converter.py:57] - Segment 8/16: Reconnaissance réussie (532 caractères)
+2024-12-21 09:18:58,449 - DEBUG - [main_window.py:271] - Progression mise à jour: 8/16 segments (50.0%)
+2024-12-21 09:18:58,449 - INFO - [main_window.py:279] - Segment 8/16 traité (532 caractères)
+2024-12-21 09:18:58,732 - DEBUG - [audio_converter.py:53] - Segment 4 supprimé
+2024-12-21 09:18:58,732 - DEBUG - [audio_converter.py:57] - Segment 4/16: Reconnaissance réussie (495 caractères)
+2024-12-21 09:18:58,737 - DEBUG - [main_window.py:271] - Progression mise à jour: 4/16 segments (25.0%)
+2024-12-21 09:18:58,737 - INFO - [main_window.py:279] - Segment 4/16 traité (495 caractères)
+2024-12-21 09:18:59,499 - DEBUG - [audio_converter.py:53] - Segment 15 supprimé
+2024-12-21 09:18:59,500 - DEBUG - [audio_converter.py:57] - Segment 15/16: Reconnaissance réussie (112 caractères)
+2024-12-21 09:18:59,513 - DEBUG - [main_window.py:271] - Progression mise à jour: 15/16 segments (93.8%)
+2024-12-21 09:18:59,514 - INFO - [main_window.py:279] - Segment 15/16 traité (112 caractères)
+2024-12-21 09:19:00,834 - DEBUG - [audio_converter.py:53] - Segment 13 supprimé
+2024-12-21 09:19:00,836 - DEBUG - [audio_converter.py:57] - Segment 13/16: Reconnaissance réussie (618 caractères)
+2024-12-21 09:19:00,849 - DEBUG - [main_window.py:271] - Progression mise à jour: 13/16 segments (81.2%)
+2024-12-21 09:19:00,850 - INFO - [main_window.py:279] - Segment 13/16 traité (618 caractères)
+2024-12-21 09:19:00,855 - DEBUG - [audio_converter.py:53] - Segment 5 supprimé
+2024-12-21 09:19:00,856 - DEBUG - [audio_converter.py:57] - Segment 5/16: Reconnaissance réussie (592 caractères)
+2024-12-21 09:19:00,862 - DEBUG - [main_window.py:271] - Progression mise à jour: 5/16 segments (31.2%)
+2024-12-21 09:19:00,862 - INFO - [main_window.py:279] - Segment 5/16 traité (592 caractères)
+2024-12-21 09:19:02,140 - DEBUG - [audio_converter.py:53] - Segment 16 supprimé
+2024-12-21 09:19:02,141 - DEBUG - [audio_converter.py:57] - Segment 16/16: Reconnaissance réussie (174 caractères)
+2024-12-21 09:19:02,154 - DEBUG - [main_window.py:271] - Progression mise à jour: 16/16 segments (100.0%)
+2024-12-21 09:19:02,155 - INFO - [main_window.py:279] - Segment 16/16 traité (174 caractères)
+2024-12-21 09:19:03,752 - DEBUG - [audio_converter.py:53] - Segment 14 supprimé
+2024-12-21 09:19:03,753 - DEBUG - [audio_converter.py:57] - Segment 14/16: Reconnaissance réussie (102 caractères)
+2024-12-21 09:19:03,765 - DEBUG - [main_window.py:271] - Progression mise à jour: 14/16 segments (87.5%)
+2024-12-21 09:19:03,766 - INFO - [main_window.py:279] - Segment 14/16 traité (102 caractères)
+2024-12-21 09:19:03,769 - INFO - [audio_converter.py:236] - Fichier WAV temporaire supprimé
+2024-12-21 09:19:03,776 - INFO - [main_window.py:348] - Conversion terminée avec succès
+2024-12-21 09:19:03,776 - INFO - [main_window.py:349] - Résultat : on avait ce budget là on a fait ça ça dérivé pour telle et telle raison ça a été des drivers techniq...
