@@ -1,9 +1,13 @@
 import sys
 import os
 import logging
-import traceback
+from datetime import datetime
 from pathlib import Path
-from PyQt6.QtWidgets import QApplication, QMessageBox
+
+# Ajouter le répertoire parent au chemin Python
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from PyQt6.QtWidgets import QApplication
 from PyQt6.QtCore import Qt
 from src.main_window import MainWindow
 
@@ -94,4 +98,4 @@ def main():
         return 1
 
 if __name__ == '__main__':
-    sys.exit(main())
+    main()

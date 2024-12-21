@@ -1,7 +1,13 @@
 import pytest
 from PyQt6.QtWidgets import QApplication
-from src.main_window import MainWindow
+from PyQt6.QtCore import Qt
 import sys
+import os
+
+# Ajouter le répertoire parent au chemin Python
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from src.main_window import MainWindow
 
 @pytest.fixture
 def app():

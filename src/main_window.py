@@ -1,53 +1,47 @@
+import os
+import sys
 import logging
+from pathlib import Path
+
+# Ajouter le répertoire parent au chemin Python
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from PyQt6.QtWidgets import (QMainWindow, QPushButton, QVBoxLayout, QWidget, QFileDialog,
                             QTextEdit, QScrollArea, QComboBox, QMessageBox, QLabel, QProgressBar, QHBoxLayout)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QTextCursor
 from src.audio_converter import AudioConverter
-import os
 
 class ConversionThread(QThread):
-    # Signaux pour la progression
-    progress_updated = pyqtSignal(int, int)  # (segments_traités, total_segments)
-    segment_completed = pyqtSignal(str)  # message de log pour chaque segment
-    error_occurred = pyqtSignal(str)  # Signal pour les erreurs
-    conversion_finished = pyqtSignal(str)  # Signal pour la fin de conversion
+    progress_updated = pyqtSignal(int)
+    finished = pyqtSignal(str)
+    error = pyqtSignal(str)
     
     def __init__(self, audio_path, language):
         super().__init__()
         self.audio_path = audio_path
         self.language = language
-        self.converter = None
         self.is_running = False
-        
+    
     def run(self):
         try:
             self.is_running = True
-            # Créer une nouvelle instance du convertisseur dans le thread
-            self.converter = AudioConverter()
-            
-            # Connecter les signaux du convertisseur
-            self.converter.progress_updated.connect(self.progress_updated.emit)
-            self.converter.segment_completed.connect(self.segment_completed.emit)
-            self.converter.error_occurred.connect(self.error_occurred.emit)
+            converter = AudioConverter()
             
             # Lancer la conversion
-            result = self.converter.convert_to_text(self.audio_path, self.language)
+            result = converter.convert_to_text(self.audio_path, self.language)
             if result:
-                self.conversion_finished.emit(result)
+                self.finished.emit(result)
             
         except Exception as e:
             error_msg = f"Erreur lors de la conversion : {str(e)}"
             logging.error(error_msg, exc_info=True)
-            self.error_occurred.emit(error_msg)
+            self.error.emit(error_msg)
         finally:
             self.is_running = False
     
     def stop(self):
         self.is_running = False
-        if self.converter:
-            # Nettoyer les ressources du convertisseur si nécessaire
-            pass
 
 class LogHandler(logging.Handler):
     def __init__(self, text_widget):
@@ -113,6 +107,7 @@ class MainWindow(QMainWindow):
             
             # Initialiser les variables
             self.conversion_thread = None
+            self.converter = AudioConverter()
             
             logging.info("Création des widgets")
             self._create_widgets()
@@ -261,14 +256,11 @@ class MainWindow(QMainWindow):
             self.show_error_dialog("Erreur de création des widgets", str(e))
             raise
 
-    def update_progress(self, current, total):
+    def update_progress(self, current):
         """Met à jour la barre de progression"""
         try:
-            self.progress.setMaximum(total)
             self.progress.setValue(current)
-            percentage = (current / total) * 100 if total > 0 else 0
-            self.progress.setFormat(f"Progression: {current}/{total} segments ({percentage:.1f}%)")
-            logging.debug(f"Progression mise à jour: {current}/{total} segments ({percentage:.1f}%)")
+            logging.debug(f"Progression mise à jour: {current}")
         except Exception as e:
             logging.error(f"Erreur lors de la mise à jour de la progression: {str(e)}")
             self.show_error_dialog("Erreur de progression", str(e))
@@ -288,10 +280,6 @@ class MainWindow(QMainWindow):
         self.language_combo.setEnabled(True)
         self.progress.setVisible(False)
         
-        # Arrêter le thread de conversion si nécessaire
-        if self.conversion_thread and self.conversion_thread.is_running:
-            self.conversion_thread.stop()
-
         # Afficher l'erreur dans une boîte de dialogue
         self.show_error_dialog("Erreur de conversion", error_message)
 
@@ -299,15 +287,15 @@ class MainWindow(QMainWindow):
         """Gère la sélection du fichier audio et lance la conversion"""
         try:
             logging.info("Ouverture du sélecteur de fichier")
-            file_name, _ = QFileDialog.getOpenFileName(
+            file_path, _ = QFileDialog.getOpenFileName(
                 self,
                 "Sélectionner un fichier audio",
                 "",
-                "Fichiers Audio (*.mp3 *.wav *.m4a *.ogg)"
+                "Fichiers audio (*.mp3 *.wav *.m4a *.ogg *.flac)"
             )
             
-            if file_name:
-                logging.info(f"Fichier sélectionné: {file_name}")
+            if file_path:
+                logging.info(f"Fichier sélectionné : {file_path}")
                 self.progress.setVisible(True)
                 self.progress.setValue(0)
                 self.info_label.setText("Conversion en cours...")
@@ -325,11 +313,10 @@ class MainWindow(QMainWindow):
                     self.conversion_thread.wait()
                 
                 # Créer et démarrer le thread de conversion
-                self.conversion_thread = ConversionThread(file_name, selected_language)
+                self.conversion_thread = ConversionThread(file_path, selected_language)
                 self.conversion_thread.progress_updated.connect(self.update_progress)
-                self.conversion_thread.segment_completed.connect(self.log_progress)
-                self.conversion_thread.error_occurred.connect(self.handle_error)
-                self.conversion_thread.conversion_finished.connect(self.on_conversion_finished)
+                self.conversion_thread.finished.connect(self.on_conversion_finished)
+                self.conversion_thread.error.connect(self.handle_error)
                 self.conversion_thread.start()
                 
         except Exception as e:
@@ -350,6 +337,18 @@ class MainWindow(QMainWindow):
         except Exception as e:
             logging.error(f"Erreur lors de la finalisation de la conversion: {str(e)}")
             self.show_error_dialog("Erreur de finalisation", str(e))
+
+    def stop_conversion(self):
+        """Arrête la conversion en cours"""
+        if self.conversion_thread and self.conversion_thread.is_running:
+            logging.info("Arrêt de la conversion en cours...")
+            self.conversion_thread.stop()
+            self.conversion_thread.wait()
+            logging.info("Conversion arrêtée")
+            self.progress.setValue(0)
+            self.select_button.setEnabled(True)
+            self.language_combo.setEnabled(True)
+            self.log_viewer.append("Conversion arrêtée par l'utilisateur")
 
     def closeEvent(self, event):
         """Gérer la fermeture propre de l'application"""

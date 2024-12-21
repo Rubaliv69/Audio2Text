@@ -1,0 +1,234 @@
+2024-12-21 09:33:57,527 - INFO - Initialisation de MainWindow
+2024-12-21 09:33:57,528 - INFO - Création des widgets
+2024-12-21 09:33:57,614 - INFO - Interface graphique initialisée
+2024-12-21 09:34:04,289 - INFO - Ouverture du sélecteur de fichier
+2024-12-21 09:34:11,687 - INFO - Fichier sélectionné: /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:34:11,688 - INFO - Langue sélectionnée: fr-FR
+2024-12-21 09:34:11,689 - INFO - Initialisation du convertisseur audio avec 13 workers
+2024-12-21 09:34:11,689 - INFO - Début de la conversion de /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:34:11,690 - INFO - Format du fichier : .mp3
+2024-12-21 09:34:11,690 - INFO - Conversion en WAV...
+2024-12-21 09:34:11,691 - INFO - Conversion en WAV: /opt/homebrew/bin/ffmpeg -i /Users/liv/Documents/20240117_102638.mp3 -acodec pcm_s16le -ac 1 -ar 44100 -y /var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmptsq94gdi.wav
+2024-12-21 09:34:24,076 - INFO - Fichier WAV créé : /var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmptsq94gdi.wav
+2024-12-21 09:34:24,076 - INFO - Chargement de l'audio...
+2024-12-21 09:34:24,086 - INFO - Audio chargé : durée = 702.421s
+2024-12-21 09:34:24,087 - INFO - Division en segments...
+2024-12-21 09:34:24,087 - INFO - Segment créé: 0.0s - 45.0s
+2024-12-21 09:34:24,087 - INFO - Segment créé: 45.0s - 90.0s
+2024-12-21 09:34:24,088 - INFO - Segment créé: 90.0s - 135.0s
+2024-12-21 09:34:24,088 - INFO - Segment créé: 135.0s - 180.0s
+2024-12-21 09:34:24,088 - INFO - Segment créé: 180.0s - 225.0s
+2024-12-21 09:34:24,089 - INFO - Segment créé: 225.0s - 270.0s
+2024-12-21 09:34:24,089 - INFO - Segment créé: 270.0s - 315.0s
+2024-12-21 09:34:24,089 - INFO - Segment créé: 315.0s - 360.0s
+2024-12-21 09:34:24,090 - INFO - Segment créé: 360.0s - 405.0s
+2024-12-21 09:34:24,090 - INFO - Segment créé: 405.0s - 450.0s
+2024-12-21 09:34:24,090 - INFO - Segment créé: 450.0s - 495.0s
+2024-12-21 09:34:24,091 - INFO - Segment créé: 495.0s - 540.0s
+2024-12-21 09:34:24,091 - INFO - Segment créé: 540.0s - 585.0s
+2024-12-21 09:34:24,091 - INFO - Segment créé: 585.0s - 630.0s
+2024-12-21 09:34:24,091 - INFO - Segment créé: 630.0s - 675.0s
+2024-12-21 09:34:24,092 - INFO - Segment créé: 675.0s - 702.4s
+2024-12-21 09:34:24,092 - INFO - Nombre de segments : 16
+2024-12-21 09:34:24,092 - INFO - Création du pool avec 13 workers
+2024-12-21 09:34:24,092 - DEBUG - Progression mise à jour: 0/16 segments (0.0%)
+2024-12-21 09:34:24,092 - DEBUG - Segment 0/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,092 - DEBUG - Segment 1/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,093 - DEBUG - Segment 2/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,093 - DEBUG - Segment 3/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,093 - DEBUG - Segment 4/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,094 - ERROR - Segment 1/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,098 - DEBUG - Segment 6/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,098 - ERROR - Segment 0/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,098 - DEBUG - Segment 5/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,098 - ERROR - Segment 2/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,101 - DEBUG - Segment 7/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,101 - ERROR - Segment 3/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,101 - ERROR - Segment 6/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,101 - ERROR - Segment 4/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,102 - DEBUG - Segment 8/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,102 - DEBUG - Segment 9/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,102 - DEBUG - Segment 10/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,105 - DEBUG - Segment 11/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,105 - DEBUG - Segment 12/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,105 - ERROR - Segment 5/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,105 - DEBUG - Segment 13/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,108 - DEBUG - Segment 15/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,108 - DEBUG - Segment 14/16: Tentative 1 de reconnaissance
+2024-12-21 09:34:24,108 - ERROR - Segment 7/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,111 - DEBUG - Progression mise à jour: 1/16 segments (6.2%)
+2024-12-21 09:34:24,111 - INFO - Segment 1/16 traité avec succès
+2024-12-21 09:34:24,115 - ERROR - Segment 8/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,115 - ERROR - Segment 10/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,115 - ERROR - Segment 9/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,115 - ERROR - Segment 11/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,117 - ERROR - Segment 12/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,118 - ERROR - Segment 13/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,118 - ERROR - Segment 15/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,121 - ERROR - Segment 14/16: Erreur inattendue ('tuple' object has no attribute 'export')
+2024-12-21 09:34:24,121 - INFO - Segment 1/16 traité
+2024-12-21 09:34:24,121 - INFO - Segment 2/16 traité avec succès
+2024-12-21 09:34:24,142 - INFO - Segment 3/16 traité avec succès
+2024-12-21 09:34:24,142 - INFO - Segment 7/16 traité avec succès
+2024-12-21 09:34:24,142 - INFO - Segment 4/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 5/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 6/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 8/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 9/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 11/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 10/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 12/16 traité avec succès
+2024-12-21 09:34:24,143 - INFO - Segment 13/16 traité avec succès
+2024-12-21 09:34:24,144 - DEBUG - Progression mise à jour: 2/16 segments (12.5%)
+2024-12-21 09:34:24,144 - INFO - Segment 14/16 traité avec succès
+2024-12-21 09:34:24,144 - INFO - Segment 2/16 traité
+2024-12-21 09:34:24,145 - INFO - Segment 16/16 traité avec succès
+2024-12-21 09:34:24,145 - INFO - Segment 15/16 traité avec succès
+2024-12-21 09:34:24,146 - DEBUG - Progression mise à jour: 3/16 segments (18.8%)
+2024-12-21 09:34:24,147 - INFO - Segment 3/16 traité
+2024-12-21 09:34:24,147 - DEBUG - Progression mise à jour: 4/16 segments (25.0%)
+2024-12-21 09:34:24,148 - INFO - Segment 7/16 traité
+2024-12-21 09:34:24,148 - DEBUG - Progression mise à jour: 5/16 segments (31.2%)
+2024-12-21 09:34:24,148 - INFO - Segment 4/16 traité
+2024-12-21 09:34:24,149 - DEBUG - Progression mise à jour: 6/16 segments (37.5%)
+2024-12-21 09:34:24,149 - INFO - Segment 5/16 traité
+2024-12-21 09:34:24,150 - DEBUG - Progression mise à jour: 7/16 segments (43.8%)
+2024-12-21 09:34:24,150 - INFO - Segment 6/16 traité
+2024-12-21 09:34:24,150 - DEBUG - Progression mise à jour: 8/16 segments (50.0%)
+2024-12-21 09:34:24,150 - INFO - Segment 8/16 traité
+2024-12-21 09:34:24,150 - INFO - Texte final généré : 0 caractères
+2024-12-21 09:34:24,151 - DEBUG - Progression mise à jour: 9/16 segments (56.2%)
+2024-12-21 09:34:24,151 - INFO - Segment 9/16 traité
+2024-12-21 09:34:24,152 - DEBUG - Progression mise à jour: 10/16 segments (62.5%)
+2024-12-21 09:34:24,152 - INFO - Segment 11/16 traité
+2024-12-21 09:34:24,152 - DEBUG - Progression mise à jour: 11/16 segments (68.8%)
+2024-12-21 09:34:24,152 - INFO - Fichier WAV temporaire supprimé
+2024-12-21 09:34:24,153 - INFO - Segment 10/16 traité
+2024-12-21 09:34:24,157 - DEBUG - Progression mise à jour: 12/16 segments (75.0%)
+2024-12-21 09:34:24,157 - INFO - Segment 12/16 traité
+2024-12-21 09:34:24,158 - DEBUG - Progression mise à jour: 13/16 segments (81.2%)
+2024-12-21 09:34:24,158 - INFO - Segment 13/16 traité
+2024-12-21 09:34:24,159 - DEBUG - Progression mise à jour: 14/16 segments (87.5%)
+2024-12-21 09:34:24,159 - INFO - Segment 14/16 traité
+2024-12-21 09:34:24,159 - DEBUG - Progression mise à jour: 15/16 segments (93.8%)
+2024-12-21 09:34:24,159 - INFO - Segment 16/16 traité
+2024-12-21 09:34:24,160 - DEBUG - Progression mise à jour: 16/16 segments (100.0%)
+2024-12-21 09:34:24,160 - INFO - Segment 15/16 traité
+2024-12-21 09:41:11,304 - INFO - Initialisation de MainWindow
+2024-12-21 09:41:11,304 - INFO - Création des widgets
+2024-12-21 09:41:11,374 - INFO - Interface graphique initialisée
+2024-12-21 09:41:13,425 - INFO - Ouverture du sélecteur de fichier
+2024-12-21 09:41:18,570 - INFO - Fichier sélectionné: /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:41:18,572 - INFO - Langue sélectionnée: fr-FR
+2024-12-21 09:41:18,572 - INFO - Initialisation du convertisseur audio avec 13 workers
+2024-12-21 09:41:18,573 - INFO - Début de la conversion de /Users/liv/Documents/20240117_102638.mp3
+2024-12-21 09:41:18,573 - INFO - Format du fichier : .mp3
+2024-12-21 09:41:18,573 - INFO - Conversion en WAV...
+2024-12-21 09:41:18,573 - INFO - Conversion en WAV: /opt/homebrew/bin/ffmpeg -i /Users/liv/Documents/20240117_102638.mp3 -acodec pcm_s16le -ac 1 -ar 44100 -y /var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmposjv184n.wav
+2024-12-21 09:41:19,214 - INFO - Fichier WAV créé : /var/folders/ll/pv6hfz954zz74gtk_6c3mlj00000gn/T/tmposjv184n.wav
+2024-12-21 09:41:19,215 - INFO - Chargement de l'audio...
+2024-12-21 09:41:19,225 - INFO - Audio chargé : durée = 702.421s
+2024-12-21 09:41:19,226 - INFO - Division en segments...
+2024-12-21 09:41:19,226 - INFO - Segment créé: 0.0s - 45.0s
+2024-12-21 09:41:19,226 - INFO - Segment créé: 45.0s - 90.0s
+2024-12-21 09:41:19,227 - INFO - Segment créé: 90.0s - 135.0s
+2024-12-21 09:41:19,227 - INFO - Segment créé: 135.0s - 180.0s
+2024-12-21 09:41:19,227 - INFO - Segment créé: 180.0s - 225.0s
+2024-12-21 09:41:19,228 - INFO - Segment créé: 225.0s - 270.0s
+2024-12-21 09:41:19,228 - INFO - Segment créé: 270.0s - 315.0s
+2024-12-21 09:41:19,228 - INFO - Segment créé: 315.0s - 360.0s
+2024-12-21 09:41:19,229 - INFO - Segment créé: 360.0s - 405.0s
+2024-12-21 09:41:19,229 - INFO - Segment créé: 405.0s - 450.0s
+2024-12-21 09:41:19,229 - INFO - Segment créé: 450.0s - 495.0s
+2024-12-21 09:41:19,230 - INFO - Segment créé: 495.0s - 540.0s
+2024-12-21 09:41:19,230 - INFO - Segment créé: 540.0s - 585.0s
+2024-12-21 09:41:19,230 - INFO - Segment créé: 585.0s - 630.0s
+2024-12-21 09:41:19,231 - INFO - Segment créé: 630.0s - 675.0s
+2024-12-21 09:41:19,231 - INFO - Segment créé: 675.0s - 702.4s
+2024-12-21 09:41:19,231 - INFO - Nombre de segments : 16
+2024-12-21 09:41:19,231 - INFO - Création du pool avec 13 workers
+2024-12-21 09:41:19,231 - DEBUG - Progression mise à jour: 0/16 segments (0.0%)
+2024-12-21 09:41:19,232 - DEBUG - Segment 1/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,232 - DEBUG - Segment 2/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,232 - DEBUG - Segment 3/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,232 - DEBUG - Segment 4/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,232 - DEBUG - Segment 5/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,233 - DEBUG - Segment 6/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,233 - DEBUG - Segment 7/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,233 - DEBUG - Segment 8/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,234 - DEBUG - Segment 9/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,234 - DEBUG - Segment 10/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,235 - DEBUG - Segment 11/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,235 - DEBUG - Segment 12/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:19,235 - DEBUG - Segment 13/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:33,357 - DEBUG - Segment 11 supprimé
+2024-12-21 09:41:33,358 - DEBUG - Segment 11/16: Reconnaissance réussie (137 caractères)
+2024-12-21 09:41:33,370 - DEBUG - Segment 14/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:33,370 - DEBUG - Progression mise à jour: 0/16 segments (0.0%)
+2024-12-21 09:41:33,371 - INFO - Segment 11/16 traité (137 caractères)
+2024-12-21 09:41:35,213 - DEBUG - Segment 8 supprimé
+2024-12-21 09:41:35,214 - DEBUG - Segment 8/16: Reconnaissance réussie (532 caractères)
+2024-12-21 09:41:35,226 - DEBUG - Segment 15/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:35,227 - DEBUG - Progression mise à jour: 1/16 segments (6.2%)
+2024-12-21 09:41:35,229 - INFO - Segment 8/16 traité (532 caractères)
+2024-12-21 09:41:36,901 - DEBUG - Segment 7 supprimé
+2024-12-21 09:41:36,903 - DEBUG - Segment 7/16: Reconnaissance réussie (431 caractères)
+2024-12-21 09:41:36,915 - DEBUG - Segment 16/16: Tentative 1 de reconnaissance
+2024-12-21 09:41:36,916 - DEBUG - Progression mise à jour: 2/16 segments (12.5%)
+2024-12-21 09:41:36,917 - INFO - Segment 7/16 traité (431 caractères)
+2024-12-21 09:41:36,930 - DEBUG - Segment 12 supprimé
+2024-12-21 09:41:36,931 - DEBUG - Segment 12/16: Reconnaissance réussie (501 caractères)
+2024-12-21 09:41:36,938 - DEBUG - Progression mise à jour: 3/16 segments (18.8%)
+2024-12-21 09:41:36,938 - INFO - Segment 12/16 traité (501 caractères)
+2024-12-21 09:41:37,022 - DEBUG - Segment 1 supprimé
+2024-12-21 09:41:37,022 - DEBUG - Segment 1/16: Reconnaissance réussie (558 caractères)
+2024-12-21 09:41:37,026 - DEBUG - Progression mise à jour: 4/16 segments (25.0%)
+2024-12-21 09:41:37,026 - INFO - Segment 1/16 traité (558 caractères)
+2024-12-21 09:41:37,456 - DEBUG - Segment 6 supprimé
+2024-12-21 09:41:37,457 - DEBUG - Segment 6/16: Reconnaissance réussie (308 caractères)
+2024-12-21 09:41:37,461 - DEBUG - Progression mise à jour: 5/16 segments (31.2%)
+2024-12-21 09:41:37,461 - INFO - Segment 6/16 traité (308 caractères)
+2024-12-21 09:41:37,604 - DEBUG - Segment 2 supprimé
+2024-12-21 09:41:37,604 - DEBUG - Segment 2/16: Reconnaissance réussie (636 caractères)
+2024-12-21 09:41:37,608 - DEBUG - Progression mise à jour: 6/16 segments (37.5%)
+2024-12-21 09:41:37,609 - INFO - Segment 2/16 traité (636 caractères)
+2024-12-21 09:41:37,901 - DEBUG - Segment 3 supprimé
+2024-12-21 09:41:37,902 - DEBUG - Segment 3/16: Reconnaissance réussie (445 caractères)
+2024-12-21 09:41:37,905 - DEBUG - Progression mise à jour: 7/16 segments (43.8%)
+2024-12-21 09:41:37,905 - INFO - Segment 3/16 traité (445 caractères)
+2024-12-21 09:41:38,093 - DEBUG - Segment 10 supprimé
+2024-12-21 09:41:38,093 - DEBUG - Segment 10/16: Reconnaissance réussie (508 caractères)
+2024-12-21 09:41:38,097 - DEBUG - Progression mise à jour: 8/16 segments (50.0%)
+2024-12-21 09:41:38,097 - INFO - Segment 10/16 traité (508 caractères)
+2024-12-21 09:41:40,271 - DEBUG - Segment 9 supprimé
+2024-12-21 09:41:40,272 - DEBUG - Segment 9/16: Reconnaissance réussie (548 caractères)
+2024-12-21 09:41:40,282 - DEBUG - Progression mise à jour: 9/16 segments (56.2%)
+2024-12-21 09:41:40,283 - INFO - Segment 9/16 traité (548 caractères)
+2024-12-21 09:41:41,231 - DEBUG - Segment 5 supprimé
+2024-12-21 09:41:41,232 - DEBUG - Segment 5/16: Reconnaissance réussie (592 caractères)
+2024-12-21 09:41:41,246 - DEBUG - Progression mise à jour: 10/16 segments (62.5%)
+2024-12-21 09:41:41,247 - INFO - Segment 5/16 traité (592 caractères)
+2024-12-21 09:41:41,320 - DEBUG - Segment 13 supprimé
+2024-12-21 09:41:41,320 - DEBUG - Segment 13/16: Reconnaissance réussie (618 caractères)
+2024-12-21 09:41:41,324 - DEBUG - Progression mise à jour: 11/16 segments (68.8%)
+2024-12-21 09:41:41,325 - INFO - Segment 13/16 traité (618 caractères)
+2024-12-21 09:41:41,753 - DEBUG - Segment 15 supprimé
+2024-12-21 09:41:41,753 - DEBUG - Segment 15/16: Reconnaissance réussie (112 caractères)
+2024-12-21 09:41:41,756 - DEBUG - Progression mise à jour: 12/16 segments (75.0%)
+2024-12-21 09:41:41,757 - INFO - Segment 15/16 traité (112 caractères)
+2024-12-21 09:41:41,843 - DEBUG - Segment 4 supprimé
+2024-12-21 09:41:41,844 - DEBUG - Segment 4/16: Reconnaissance réussie (495 caractères)
+2024-12-21 09:41:41,848 - DEBUG - Progression mise à jour: 13/16 segments (81.2%)
+2024-12-21 09:41:41,848 - INFO - Segment 4/16 traité (495 caractères)
+2024-12-21 09:41:46,278 - DEBUG - Segment 16 supprimé
+2024-12-21 09:41:46,279 - DEBUG - Segment 16/16: Reconnaissance réussie (174 caractères)
+2024-12-21 09:41:46,292 - DEBUG - Progression mise à jour: 14/16 segments (87.5%)
+2024-12-21 09:41:46,293 - INFO - Segment 16/16 traité (174 caractères)
+2024-12-21 09:41:50,466 - DEBUG - Segment 14 supprimé
+2024-12-21 09:41:50,467 - DEBUG - Segment 14/16: Reconnaissance réussie (102 caractères)
+2024-12-21 09:41:50,479 - DEBUG - Progression mise à jour: 15/16 segments (93.8%)
+2024-12-21 09:41:50,480 - INFO - Segment 14/16 traité (102 caractères)
+2024-12-21 09:41:50,481 - INFO - Texte final généré : 6712 caractères
+2024-12-21 09:41:50,483 - INFO - Fichier WAV temporaire supprimé
+2024-12-21 09:41:50,489 - INFO - Conversion terminée avec succès
+2024-12-21 09:41:50,489 - INFO - Résultat : on avait ce budget là on a fait ça ça dérivé pour telle et telle raison ça a été des drivers techniq...

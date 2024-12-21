@@ -13,6 +13,7 @@ from typing import List, Tuple
 from PyQt6.QtCore import QObject, pyqtSignal, Qt
 import datetime
 import gc
+import sys
 
 class AudioConverter(QObject):
     # Signaux pour la progression
@@ -27,6 +28,7 @@ class AudioConverter(QObject):
         self.language = 'fr-FR'  # Langue par défaut
         self.supported_formats = ['.wav', '.mp3', '.m4a', '.flac', '.ogg']
         self.recognizer = sr.Recognizer()
+        self.is_running = False
         logging.info(f"Initialisation du convertisseur audio avec {self.max_workers} workers")
 
     def process_segment(self, segment_data):
@@ -91,22 +93,30 @@ class AudioConverter(QObject):
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
             wav_path = temp_file.name
         
-        # Utiliser le chemin complet vers ffmpeg
-        ffmpeg_cmd = '/opt/homebrew/bin/ffmpeg'
-        
-        # Construire la commande ffmpeg
-        command = f'{ffmpeg_cmd} -i "{audio_path}" -acodec pcm_s16le -ac 1 -ar 44100 -y "{wav_path}"'
-        logging.info(f"Conversion en WAV: {command}")
-        
-        # Exécuter la commande
         try:
-            subprocess.run(command, shell=True, check=True, capture_output=True)
+            # Chercher ffmpeg dans le PATH
+            ffmpeg_cmd = 'ffmpeg'
+            if os.path.exists('/opt/homebrew/bin/ffmpeg'):
+                ffmpeg_cmd = '/opt/homebrew/bin/ffmpeg'
+            elif os.path.exists('/usr/local/bin/ffmpeg'):
+                ffmpeg_cmd = '/usr/local/bin/ffmpeg'
+            
+            # Construire la commande ffmpeg
+            command = [ffmpeg_cmd, '-i', audio_path, '-acodec', 'pcm_s16le', '-ac', '1', '-ar', '44100', '-y', wav_path]
+            logging.info(f"Conversion en WAV: {' '.join(command)}")
+            
+            # Exécuter la commande
+            result = subprocess.run(command, capture_output=True, text=True)
+            if result.returncode != 0:
+                raise Exception(f"Erreur ffmpeg: {result.stderr}")
+            
             return wav_path
-        except subprocess.CalledProcessError as e:
-            error_msg = f"Erreur lors de la conversion en WAV: {e.stderr.decode()}"
-            logging.error(error_msg)
-            self.error_occurred.emit(error_msg)
-            raise RuntimeError(error_msg)
+            
+        except Exception as e:
+            logging.error(f"Erreur lors de la conversion en WAV: {str(e)}")
+            if os.path.exists(wav_path):
+                os.unlink(wav_path)
+            raise
 
     def get_audio_duration(self, wav_path):
         """Obtient la durée du fichier audio en secondes"""
@@ -180,72 +190,83 @@ class AudioConverter(QObject):
             self.error_occurred.emit(error_msg)
             raise
 
-    def convert_to_text(self, audio_path, language='fr-FR'):
-        """Convertit le fichier audio en texte."""
-        self.language = language
-        logging.info(f"Démarrage de la conversion du fichier: {audio_path}")
-        logging.info(f"Langue sélectionnée: {language}")
-        
+    def convert_to_text(self, audio_path: str, language: str = None) -> str:
+        """Convertit un fichier audio en texte"""
         try:
-            # Convertir en WAV avec les paramètres optimaux
-            logging.info("Conversion du fichier en format WAV...")
-            wav_path = self.convert_to_wav(audio_path)
+            self.is_running = True
+            if language:
+                self.language = language
             
-            try:
-                # Diviser l'audio en segments
-                logging.info("Division du fichier audio en segments...")
-                audio = AudioSegment.from_wav(wav_path)
-                segments = self.split_audio(audio)
-                logging.info(f"Nombre total de segments: {len(segments)}")
+            logging.info(f"Début de la conversion de {audio_path} en texte (langue: {self.language})")
+            
+            # Vérifier si le fichier existe
+            if not os.path.exists(audio_path):
+                raise FileNotFoundError(f"Le fichier {audio_path} n'existe pas")
+            
+            # Convertir en WAV si nécessaire
+            wav_path = self.convert_to_wav(audio_path)
+            logging.info(f"Fichier converti en WAV : {wav_path}")
+            
+            # Charger l'audio
+            audio = AudioSegment.from_wav(wav_path)
+            logging.info(f"Fichier audio chargé, durée : {len(audio)/1000} secondes")
+            
+            # Diviser en segments
+            segments = self.split_audio(audio)
+            total_segments = len(segments)
+            logging.info(f"Audio divisé en {total_segments} segments")
+            
+            # Initialiser le résultat
+            result_text = []
+            segments_processed = 0
+            
+            # Créer un pool de threads
+            with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                # Soumettre les tâches
+                futures = []
+                for segment in segments:
+                    if not self.is_running:
+                        logging.info("Conversion interrompue")
+                        break
+                    futures.append(executor.submit(self.process_segment, segment))
                 
-                # Libérer la mémoire du fichier WAV original
-                del audio
-                gc.collect()
-                
-                # Traitement parallèle avec un nombre limité de workers
-                logging.info(f"Démarrage du traitement parallèle avec {self.max_workers} workers")
-                with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-                    # Créer les futures
-                    future_to_segment = {
-                        executor.submit(self.process_segment, segment_data): segment_data[1]
-                        for segment_data in segments
-                    }
-                    
-                    # Traiter les résultats au fur et à mesure
-                    results = []
-                    for future in as_completed(future_to_segment):
-                        try:
-                            segment_index, text = future.result()
-                            if text:  # Ne garder que les segments non vides
-                                results.append((segment_index, text))
-                                self.progress_updated.emit(segment_index, len(segments))
-                                self.segment_completed.emit(f"Segment {segment_index}/{len(segments)} traité ({len(text)} caractères)")
-                        except Exception as e:
-                            logging.error(f"Erreur lors du traitement d'un segment: {str(e)}")
-                            continue
-                
-                # Trier les résultats par index de segment
-                results.sort(key=lambda x: x[0])
-                
-                # Joindre les textes
-                text = "\n".join(text for _, text in results)
-                
-                # Nettoyer
+                # Traiter les résultats
+                for future in futures:
+                    if not self.is_running:
+                        break
+                    try:
+                        index, text = future.result()
+                        result_text.append(text)
+                        segments_processed += 1
+                        progress = (segments_processed * 100) // total_segments
+                        self.progress_updated.emit(segments_processed, total_segments)
+                        self.segment_completed.emit(f"Segment {index} traité")
+                    except Exception as e:
+                        error_msg = f"Erreur lors du traitement d'un segment : {str(e)}"
+                        logging.error(error_msg)
+                        self.error_occurred.emit(error_msg)
+            
+            # Nettoyer le fichier WAV temporaire
+            if wav_path != audio_path:
                 try:
                     os.unlink(wav_path)
                     logging.info("Fichier WAV temporaire supprimé")
                 except Exception as e:
-                    logging.error(f"Erreur lors de la suppression du fichier WAV: {str(e)}")
-                
-                return text
-                
-            except Exception as e:
-                logging.error(f"Erreur lors de la conversion: {str(e)}")
-                raise
-                
+                    logging.warning(f"Impossible de supprimer le fichier temporaire : {str(e)}")
+            
+            # Formater et retourner le texte final
+            final_text = " ".join(result_text)
+            final_text = self.format_text(final_text)
+            logging.info("Conversion terminée avec succès")
+            return final_text
+            
         except Exception as e:
-            logging.error(f"Erreur lors de la conversion: {str(e)}")
+            error_msg = f"Erreur lors de la conversion : {str(e)}"
+            logging.error(error_msg)
+            self.error_occurred.emit(error_msg)
             raise
+        finally:
+            self.is_running = False
 
     def convert_audio(self, input_file: str, output_format: str = 'wav') -> str:
         """Convertit un fichier audio dans le format spécifié."""
@@ -261,11 +282,32 @@ class AudioConverter(QObject):
 
     def get_duration(self, file_path: str) -> float:
         """Obtient la durée d'un fichier audio en secondes."""
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Le fichier {file_path} n'existe pas")
-
         try:
-            audio = AudioSegment.from_file(file_path)
-            return len(audio) / 1000.0  # Convertit en secondes
+            logging.info(f"Obtention de la durée pour le fichier : {file_path}")
+            if not os.path.exists(file_path):
+                error_msg = f"Le fichier {file_path} n'existe pas"
+                logging.error(error_msg)
+                raise FileNotFoundError(error_msg)
+            
+            # Vérifier l'extension du fichier
+            ext = os.path.splitext(file_path)[1].lower()
+            logging.info(f"Extension du fichier : {ext}")
+            if ext not in self.supported_formats:
+                error_msg = f"Format de fichier non supporté : {ext}"
+                logging.error(error_msg)
+                raise ValueError(error_msg)
+            
+            # Charger le fichier audio
+            try:
+                audio = AudioSegment.from_file(file_path)
+                duration = len(audio) / 1000.0  # Convertir en secondes
+                logging.info(f"Durée obtenue : {duration} secondes")
+                return duration
+            except Exception as e:
+                error_msg = f"Erreur lors du chargement du fichier audio : {str(e)}"
+                logging.error(error_msg)
+                raise Exception(error_msg)
+                
         except Exception as e:
-            raise ValueError(f"Impossible de lire le fichier audio : {str(e)}")
+            logging.error(f"Erreur dans get_duration : {str(e)}")
+            raise
